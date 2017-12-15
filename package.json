@@ -1,7 +1,7 @@
 {
-  "name": "name",
+  "name": "Tetris",
   "version": "1.0.0",
-  "description": "",
+  "description": "Investigate the [HTML5 canvas tag](http://www.html5canvastutorials.com/) to",
   "main": "Gruntfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -16,5 +16,13 @@
     "grunt-contrib-sass": "^1.0.0",
     "grunt-contrib-watch": "^1.0.0",
     "matchdep": "^2.0.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kenziebottoms/nss-front-02-tetris.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kenziebottoms/nss-front-02-tetris/issues"
+  },
+  "homepage": "https://github.com/kenziebottoms/nss-front-02-tetris#readme"
 }
