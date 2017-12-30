@@ -37,8 +37,10 @@ function Grid() {
             for (let y=map.length-1; y>= 0; y--) {
                 if (map[y][x] == 1) {
                     // checks if lowest positive space in map collides with other positive space
+                    if (this.matrix.length <= (origin[0]+y+1)) {
+                        return false;
+                    }
                     if (this.matrix[origin[0]+y+1][origin[1]+x] != "") {
-                        console.log(origin[0]+y+1, origin[1]+x);
                         return false;
                     }
                     break;
