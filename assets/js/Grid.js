@@ -38,6 +38,7 @@ function Grid() {
                 if (map[y][x] == 1) {
                     // checks if lowest positive space in map collides with other positive space
                     if (this.matrix[origin[0]+y+1][origin[1]+x] != "") {
+                        console.log(origin[0]+y+1, origin[1]+x);
                         return false;
                     }
                     break;
@@ -51,12 +52,15 @@ function Grid() {
     this.moveDown = () => {
         let piece = this.activePiece;
         let map = piece.map;
-        let origin = piece.origin;
         if (this.canMoveDown(piece)) {
+            piece.origin[0]++;
+            let origin = piece.origin;
             for (let x=0; x<map[0].length; x++) {
                 for (let y=map.length-1; y>= 0; y--) {
-                    this.matrix[origin[0]+y][origin[1]+x] = "";
-                    this.matrix[origin[0]+y+1][origin[1]+x] = piece.letter;
+                    if (map[y][x] == 1) {
+                        this.matrix[origin[0]+y-1][origin[1]+x] = "";
+                        this.matrix[origin[0]+y][origin[1]+x] = piece.letter;
+                    }
                 }
             }
         } else {
