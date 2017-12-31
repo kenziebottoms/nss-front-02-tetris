@@ -37,7 +37,6 @@ const blockMaps = {
         [1]
     ]
 };
-
 const colorCodes = {
     "i": "red",
     "l": "green",
@@ -45,7 +44,8 @@ const colorCodes = {
     "j": "yellow",
     "o": "orchid",
     "s": "blue",
-    "t": "orange"
+    "t": "orange",
+    "": "none"
 };
 
 function Piece(letter, origin) {
