@@ -13,12 +13,32 @@ function Grid() {
     ];
     this.population = [];
     this.activePiece = {};
+    this.getCopyOfMatrix = () => {
+        return this.matrix.map(row => {
+            return row.slice();
+        });
+    };
+    this.toString = grid => {
+        let str = "";
+        if (!grid) {
+            grid = this.matrix;
+        }
+        grid.forEach(row => {
+            row.forEach(item => {
+                str += `${item == "" ? "-" : item} `;
+            });
+            str += "\n";
+        });
+        return str;
+    };
+    
     this.addPiece = (letter, origin) => {
         let piece = new PieceFactory.Piece(letter, origin);
-        if (this.fits(piece, origin)) {
+        if (this.place(piece, origin)) {
             this.population.push(piece);
             this.activePiece = piece;
-            this.place(piece, origin);
+        } else {
+            alert("Game OVER!!!");
         }
     };
     
@@ -27,13 +47,12 @@ function Grid() {
         if (!piece) {
             piece = this.activePiece;
         }
-        this.forget(piece);
         this.place(piece, [piece.origin[0]+1, piece.origin[1]]);
     };
 
     // returns a grid without the piece on it
     this.forget = piece => {
-        let grid = this.matrix.slice();
+        let grid = this.getCopyOfMatrix();
         let origin = piece.origin;
         for (let y=0; y<piece.map.length; y++) {
             for (let x=0; x<piece.map[y].length; x++) {
@@ -45,6 +64,9 @@ function Grid() {
 
     this.fits = (piece, origin) => {
         let grid = this.forget(piece);
+        if (origin[0] == 0 && origin[1] == 0) {
+            grid = this.getCopyOfMatrix();
+        }
 
         // covers indexOutOfBounds
         if (piece.map.length+piece.origin[0] > grid.length ||
@@ -53,7 +75,7 @@ function Grid() {
         }
         // checks collisions
         for (let y=0; y<piece.map.length; y++) {
-            for (let x=0; x<piece.map.length[y]; x++) {
+            for (let x=0; x<piece.map[y].length; x++) {
                 if (grid[y+origin[0]][x+origin[1]] != "") {
                     return false;
                 }
@@ -74,10 +96,17 @@ function Grid() {
                 }
             }
             draw.redraw(this.matrix);
+            return true;
         } else {
             console.log(`${piece.letter} doesn't fit at ${piece.origin[1], piece.origin[0]}`);
+            return false;
         }
     };
+    // this.test = () => {
+    //     this.addPiece("s", [0,0]);
+    //     let j = new PieceFactory.Piece("j", [0,0]);
+    //     this.addPiece("j", [0,0]);
+    // };
 }
 
 module.exports = {Grid};

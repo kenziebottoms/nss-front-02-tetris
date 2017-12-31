@@ -3,9 +3,4 @@
 const GridFactory = require("./Grid");
 
 let grid = new GridFactory.Grid();
-grid.addPiece("s", [0, 0]);
-grid.moveDown();
-grid.moveDown();
-console.log(grid);
-// grid.moveDown();
-// grid.addPiece("z",[0, 0]);
+grid.addPiece("o", [0, 0]);

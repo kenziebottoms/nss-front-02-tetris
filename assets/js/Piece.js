@@ -52,6 +52,7 @@ function Piece(letter, origin) {
     this.letter = letter;
     this.map = blockMaps[letter];
     this.color = colorCodes[letter];
+    // origin = [y, x]
     this.origin = origin;
 }
 
