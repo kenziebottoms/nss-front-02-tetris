@@ -5,6 +5,7 @@ let greenLight = false;
 let grid;
 let interval = 500;
 
+// initialize and set off loop
 const start = () => {
     grid = new GridFactory.Grid();
     greenLight = true;
@@ -12,15 +13,17 @@ const start = () => {
     setTimeout(loop, interval);
 };
 
+// one game cycle
 const loop = () => {
     if (greenLight) {
-        greenLight = grid.moveDown();
+        greenLight = grid.moveActivePieceDown();
         setTimeout(loop, interval);
     } else {
         stop();
     }
 };
 
+// game over
 const stop = () => {
     alert("GAME OVER");
 };
