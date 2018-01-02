@@ -2,14 +2,20 @@
 
 const PieceFactory = require("./Piece");
 const draw = require("./draw");
+const letters = ["i", "l", "s", "z", "t", "j", "o"];
 
 function Grid() {
     this.matrix = [
-        ["", "", "", "", ""],
-        ["", "", "", "", ""],
-        ["", "", "", "", ""],
-        ["", "", "", "", ""],
-        ["", "", "", "", ""]
+        ["", "", "", "", "", "", "", "", "", ""],
+        ["", "", "", "", "", "", "", "", "", ""],
+        ["", "", "", "", "", "", "", "", "", ""],
+        ["", "", "", "", "", "", "", "", "", ""],
+        ["", "", "", "", "", "", "", "", "", ""],
+        ["", "", "", "", "", "", "", "", "", ""],
+        ["", "", "", "", "", "", "", "", "", ""],
+        ["", "", "", "", "", "", "", "", "", ""],
+        ["", "", "", "", "", "", "", "", "", ""],
+        ["", "", "", "", "", "", "", "", "", ""]
     ];
     this.population = [];
     this.activePiece = {};
@@ -102,11 +108,11 @@ function Grid() {
             return false;
         }
     };
-    // this.test = () => {
-    //     this.addPiece("s", [0,0]);
-    //     let j = new PieceFactory.Piece("j", [0,0]);
-    //     this.addPiece("j", [0,0]);
-    // };
+
+    this.addRandomPiece = () => {
+        let number = parseInt(Math.random()*(letters.length-1));
+        this.addPiece(letters[number], [0,this.matrix[0].length/2-1]);
+    };
 }
 
 module.exports = {Grid};
