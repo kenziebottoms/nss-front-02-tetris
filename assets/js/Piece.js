@@ -53,7 +53,6 @@ function Piece(letter, origin) {
     this.map = blockMaps[letter];
     this.color = colorCodes[letter];
     this.origin = origin;
-    console.log(this);
 }
 
 module.exports = {Piece};

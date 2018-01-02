@@ -1,4 +1,4 @@
-## Building Tetris Foundations
+## Tetris Foundations
 
 Investigate the [HTML5 canvas tag](http://www.html5canvastutorials.com/) to
 
@@ -13,3 +13,13 @@ staging area to the game area.
 ### Resources
 
 Fun stuff with Canvas: [21 Canvas Experiments](http://code.tutsplus.com/articles/21-ridiculously-impressive-html5-canvas-experiments--net-14210)
+
+## Full Tetris Game
+
+Use the HTML5 canvas tag to build a browser based version of the classic game, Tetris.
+
+- [x] Randomly pick one of the seven shapes and place it at the top of the game area.
+- [ ] Allow user to use the arrow keys to move left, right, or down.
+- [ ] Allow user to rotate the piece with the w and r keys.
+- [ ] Allow user to press spacebar to move the piece down into position quickly.
+- [ ] As soon as a row is filled, remove all blocks in the row.

@@ -3,23 +3,26 @@
 const GridFactory = require("./Grid");
 let greenLight = false;
 let grid;
+let interval = 500;
 
 const start = () => {
     grid = new GridFactory.Grid();
     greenLight = true;
     grid.addRandomPiece();
-    setTimeout(loop, 1000);
+    setTimeout(loop, interval);
 };
 
 const loop = () => {
     if (greenLight) {
-        setTimeout(loop, 1000);
-        console.log(grid.toString());
+        greenLight = grid.moveDown();
+        setTimeout(loop, interval);
+    } else {
+        stop();
     }
 };
 
 const stop = () => {
-    greenLight = false;
+    alert("GAME OVER");
 };
 
 module.exports = {start, stop};
