@@ -3,7 +3,7 @@
 const GridFactory = require("./Grid");
 let greenLight = false;
 let grid;
-let interval = 500;
+let interval = 50;
 
 // initialize and set off loop
 const start = () => {

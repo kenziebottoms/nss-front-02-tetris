@@ -114,7 +114,7 @@ function Grid() {
         // collisions
         for (let y=0; y<piece.map.length; y++) {
             for (let x=0; x<piece.map[y].length; x++) {
-                if (grid[y+origin[0]][x+origin[1]] != "") {
+                if (piece.map[y][x] && grid[y+origin[0]][x+origin[1]] != "") {
                     return -2;
                 }
             }
@@ -137,7 +137,7 @@ function Grid() {
     };
 
     this.addRandomPiece = () => {
-        let number = parseInt(Math.random()*(letters.length-1));
+        let number = parseInt(Math.random()*(letters.length));
         this.addPiece(letters[number], [0,this.matrix[0].length/2-1]);
     };
 }

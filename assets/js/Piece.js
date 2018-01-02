@@ -38,14 +38,14 @@ const blockMaps = {
     ]
 };
 const colorCodes = {
-    "i": "red",
-    "l": "green",
-    "z": "purple",
-    "j": "yellow",
-    "o": "orchid",
-    "s": "blue",
-    "t": "orange",
-    "": "none"
+    "i": "#FF0000",
+    "l": "#00FF00",
+    "z": "#8C417F",
+    "j": "#FFFF00",
+    "o": "#EB3CD5",
+    "s": "#0000FF",
+    "t": "#FFA32F",
+    "": "#FFFFFF"
 };
 
 function Piece(letter, origin) {
