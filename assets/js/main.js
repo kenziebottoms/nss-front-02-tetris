@@ -1,6 +1,5 @@
 "use strict";
 
-const GridFactory = require("./Grid");
+let gameLoop = require("./loop");
 
-let grid = new GridFactory.Grid();
-grid.addPiece("o", [0, 0]);
+gameLoop.start();
